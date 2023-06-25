@@ -1,0 +1,40 @@
+import requests
+import html5lib
+from bs4 import BeautifulSoup
+# STEP:1 copy the url of the wished website
+
+url="https://www.javatpoint.com/python-tutorial"
+
+# STEP2: get the url to a variable using REQUESTS and CONTENTS
+var1=requests.get(url)
+print(url)
+
+
+# grap the website data using CONTENT
+
+htmlcontent=var1.content
+print(htmlcontent)
+
+
+#STEP:3 PARSE THE HTML
+soup=BeautifulSoup(htmlcontent,'html.parser')
+print(soup)
+print(soup.prettify())
+
+body=soup.body.p
+body
+# STEP4:HTML TREE TRAVERSAL
+title=soup.title
+title
+
+paras=soup.p
+paras
+
+anchors=soup.a
+print(anchors)
+
+print(soup.get_text())
+anchors=soup.find_all('a')
+print(anchors)
+
+
